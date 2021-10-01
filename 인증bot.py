@@ -1,4 +1,5 @@
 import discord, asyncio, pytz, datetime
+import os
 
 client = discord.Client()
 
@@ -21,4 +22,5 @@ async def on_message(message):
             await message.delete()
             await message.channel.send(embed=discord.Embed(title="인증하는 방이 아닙니다.", description = message.author.mention + "", color = 0xff0000))
 
-client.run('ODg5MDQ1NjUzMTkwMjQ2NDAx.YUbiSQ.zKDROXqVq_Y7U-pRN96aHwN5fSM')
+access_token = os.environ["BOT_TOKEN"]   
+client.run(access_token)
